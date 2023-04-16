@@ -20,36 +20,50 @@ import com.promineotech.jeep.controller.support.FetchJeepTestSupport;
 import com.promineotech.jeep.entity.Jeep;
 import com.promineotech.jeep.entity.JeepModel;
 
+@SuppressWarnings("unused")
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-// WEEK 14: 
 @ActiveProfiles("test")
+@Sql(scripts = {"classpath:flyway/migrations/V1.0__Jeep_Schema.sql",
+                "classpath:flyway/migrations/V1.1__Jeep_Data.sql"})
+
+
 @Sql(scripts = {"classpath:flyway/migrations/V1.0__Jeep_Schema.sql", 
                 "classpath:flyway/migrations/V1.1__Jeep_Data.sql"}, 
                   config = @SqlConfig(encoding = "utf-8"))
                 
 class FetchJeepTest extends FetchJeepTestSupport{
   
+//  @Autowired
+//  private JdbcTemplate jdbcTemplate;
+//  
+//  @Test // the number of customers data 
+//  void testDb () {
+//    int numrows = JdbcTestUtils.countRowsInTable(jdbcTemplate, "customers");
+//      System.out.println("num=" + numrows);   
+  
+  // @Disabled
   @Test
   void testThatJeepsAreReturnedWhenAValidModelAndTrimAreSupplied() {
-    
-    // GIVEN : a valid model, trim and URI; 
+    // Given: a valid model, trim and URI; 
     JeepModel model = JeepModel.WRANGLER; 
     String trim = "SPORT"; 
     String uri = String.format("%s?model=%s&trim=%s", getBaseUri(), model, trim);
+    
      
-  /* WHEN: a connection is made to the URI; */ 
+    // When: a connection is made to the URI; 
      ResponseEntity<List<Jeep>> response = 
           getRestTemplate().exchange(uri, HttpMethod.GET, null, 
               new ParameterizedTypeReference<>() {});        
      
-  /* THEN: a success (OK - 200) status code is returned. */
+    // Then: a success (OK - 200) status code is returned. */
     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);   
     
-  /* WEEK 14: 
-   * AND: the actual list returned is the same as the expected list. 
-   */
+    // And: the actual list returned is the same as the expected list. 
+    List<Jeep> actual = response.getBody();
     List<Jeep> expected = buildExpected();
-    System.out.println(expected);
-    assertThat(response.getBody()).isEqualTo(expected); // the test assertion  
+    
+    // actual.forEach(jeep -> jeep.setModelPK(null)); (not the best approach)
+    
+    assertThat(actual).isEqualTo(expected);  
   } 
 }

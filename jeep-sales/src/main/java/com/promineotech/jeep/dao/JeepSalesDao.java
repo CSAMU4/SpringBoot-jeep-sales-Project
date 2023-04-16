@@ -6,5 +6,12 @@ import com.promineotech.jeep.entity.JeepModel;
 
 public interface JeepSalesDao {
   
-  List<Jeep> fetchJeeps(JeepModel model, String trim); 
+  /*
+   * @param model
+   * @param trim
+   * @return
+   */
+
+  List<Jeep> fetchJeeps(JeepModel model, String trim);
+
 }
