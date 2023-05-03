@@ -45,5 +45,33 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/Users/candacesamuels/.m2/repository/org/springframework/spring-web/5.3.26/spring-web-5.3.26.jar" sourcepath="/Users/candacesamuels/.m2/repository/org/springframework/spring-web/5.3.26/spring-web-5.3.26-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.springframework"/>
+			<attribute name="maven.artifactId" value="spring-web"/>
+			<attribute name="maven.version" value="5.3.26"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/candacesamuels/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar" sourcepath="/Users/candacesamuels/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="test" value="true"/>
+			<attribute name="maven.groupId" value="org.junit.jupiter"/>
+			<attribute name="maven.artifactId" value="junit-jupiter-api"/>
+			<attribute name="maven.version" value="5.8.2"/>
+			<attribute name="maven.scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/candacesamuels/.m2/repository/org/springframework/spring-core/5.3.26/spring-core-5.3.26.jar" sourcepath="/Users/candacesamuels/.m2/repository/org/springframework/spring-core/5.3.26/spring-core-5.3.26-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.springframework"/>
+			<attribute name="maven.artifactId" value="spring-core"/>
+			<attribute name="maven.version" value="5.3.26"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
